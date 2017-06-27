@@ -1,8 +1,25 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import progressbar
+
+NOfP = int(input("How many points do you want? "))
+Diff = input("Custom number of image? [y/n] ")
+if Diff == "y":
+  NOfI = int(input("Then, how many images? "))
+else:
+  NOfI = NOfP
+path = input("Choose the path of the rendered elements ('.' of local directory): ")
+extI = input("Choose the extension of each image ('png', 'svg', 'jpg', ...): ")
+Ndpi = int(input("DPI (bigger, better, harder): "))
+
+bar = progressbar.ProgressBar(widgets=[
+    ' [', progressbar.Timer(), '] ',
+    progressbar.Bar(),
+    ' (', progressbar.ETA(), ') ',
+])
 
 def graph(n):
-  c = 500
+  c = NOfP
   m = n
   d = []
   l = np.linspace(0, c-1, c)
@@ -16,7 +33,7 @@ def graph(n):
 
   plt.close()
   plt.figure(figsize=(32, 32))
-  plt.scatter(X, Y, color='k')
+  plt.scatter(X, Y, color="k")
 
   for i in l:
     i = int(i)
@@ -27,13 +44,11 @@ def graph(n):
     x2 = X.item(r)
     y2 = Y.item(r)
 
-    plt.plot([x1, x2], [y1, y2], color='k')
+    plt.plot([x1, x2], [y1, y2], color="k")
 
-  plt.axis('off')
-  plt.savefig('MMOCs/png/graph-'+str(m)+'.png', dpi=128)
-  print('Graph generated, x'+str(m))
+  plt.axis("off")
+  plt.savefig(path + "/graph-" + str(m) + "." + extI, dpi=Ndpi)
 
-
-
-for i in np.arange(101, 201, 1):
+for i in range(NOfI):
   graph(i)
+  bar.update(i*100/NOfP)
