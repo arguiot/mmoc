@@ -90,7 +90,6 @@ body {
   background-size: 150%;
   background-position: center;
   background-blend-mode: lighten;
-  background-color: #000;
   cursor: zoom-in; }
 
 .overlay {
@@ -100,7 +99,6 @@ body {
   transform: translate(-50%, -50%);
   height: 100vmin;
   width: 100vmin;
-  background-color: #000;
   background-size: 150%;
   background-position: center;
   cursor: zoom-out;
