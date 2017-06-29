@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import progressbar
 
 # NOfP = int(input("How many points do you want? "))
-NOfP = 500
+NOfP = 100
 # Diff = input("Custom number of image? [y/n] ")
 Diff = "y"
 if Diff == "y":
@@ -17,9 +17,9 @@ else:
 # path = input("Choose the path of the rendered elements ('.' of local directory): ")
 path = "./MMOCs"
 # extI = input("Choose the extension of each image ('png', 'svg', 'jpg', ...): ")
-extI = "png"
+extI = "svg"
 # Ndpi = int(input("DPI (bigger, better, harder): "))
-Ndpi = 128
+Ndpi = 72
 bar = progressbar.ProgressBar(widgets=[
     ' [', progressbar.Timer(), '] ',
     progressbar.Bar(),
