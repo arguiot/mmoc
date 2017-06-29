@@ -2,20 +2,27 @@ language: python
 python:
   - "3.6"
 # command to install dependencies
-install: "pip install -r requirements.txt"
+install: 
+  - pip install -r requirements.txt
+  - brew install imagemagick
+  - brew install ffmpeg
 before_script: # configure a headless display to test plot generation
 - "export DISPLAY=:99.0"
 - "sh -e /etc/init.d/xvfb start"
 - sleep 3 # give xvfb some time to start
 # command to run tests
-script: python scripts.py
+script: 
+  - python scripts.py
+  - cd MMOCs/
+  - convert graph-*.svg graph-%03d.png
+  - ffmpeg -r 1 -i graph-%03d.png -pix_fmt yuv420p render.mp4
 deploy:
   provider: releases
   api-key: "9a6daae4960b3f7b053906b40f7fc168f79f7ced"
   file_glob: true
-  file: MMOCs/*
+  file: MMOCs/render.mp4
   skip_cleanup: true
   on:
-    tags: true
+    branch: master
 notifications:
   email: false
