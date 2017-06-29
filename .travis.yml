@@ -6,20 +6,18 @@ install:
   - brew install python3
   - pip3 install -r requirements.txt
   - brew install imagemagick
-  - brew install ffmpeg
 before_script: # configure a headless display to test plot generation
 - "export DISPLAY=:99.0"
 - brew cask install xquartz
 # command to run tests
 script: 
   - python3 scripts.py
-  - cd MMOCs/
-  - ffmpeg -r 1 -i graph-*.png -pix_fmt yuv420p render.mp4
+  - zip -r content.zip ./MMOCs
 deploy:
   provider: releases
   api-key: "9a6daae4960b3f7b053906b40f7fc168f79f7ced"
   file_glob: true
-  file: MMOCs/render.mp4
+  file: content.zip
   skip_cleanup: true
   on:
     branch: master
