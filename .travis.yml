@@ -15,7 +15,7 @@ script:
   - zip -r content.zip ./MMOCs
 deploy:
   provider: releases
-  api-key: "9a6daae4960b3f7b053906b40f7fc168f79f7ced"
+  api-key: "4aa988cede0bd953d2210ea0194e820f50559244"
   file_glob: true
   file: content.zip
   skip_cleanup: true
