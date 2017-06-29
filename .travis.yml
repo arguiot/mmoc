@@ -1,8 +1,11 @@
+os:
+  - osx
 language: python
 python:
   - "3.6"
 # command to install dependencies
-install: 
+install:
+  - brew update
   - pip install -r requirements.txt
   - brew install imagemagick
   - brew install ffmpeg
