@@ -1,12 +1,10 @@
 os:
   - osx
-language: python
-python:
-  - "3.6"
 # command to install dependencies
 install:
   - brew update
-  - pip install -r requirements.txt
+  - brew install python3
+  - pip3 install -r requirements.txt
   - brew install imagemagick
   - brew install ffmpeg
 before_script: # configure a headless display to test plot generation
@@ -15,7 +13,7 @@ before_script: # configure a headless display to test plot generation
 - sleep 3 # give xvfb some time to start
 # command to run tests
 script: 
-  - python scripts.py
+  - python3 scripts.py
   - cd MMOCs/
   - convert graph-*.svg graph-%03d.png
   - ffmpeg -r 1 -i graph-%03d.png -pix_fmt yuv420p render.mp4
