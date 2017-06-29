@@ -14,7 +14,7 @@ before_script: # configure a headless display to test plot generation
 script: 
   - python3 scripts.py
   - cd MMOCs/
-  - convert graph-*.svg graph-%03d.png
+  - convert graph-*.png graph-%03d.png
   - ffmpeg -r 1 -i graph-%03d.png -pix_fmt yuv420p render.mp4
 deploy:
   provider: releases
