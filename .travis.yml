@@ -10,8 +10,6 @@ install:
 before_script: # configure a headless display to test plot generation
 - "export DISPLAY=:99.0"
 - brew cask install xquartz
-- xquartz
-- sleep 3 # give xvfb some time to start
 # command to run tests
 script: 
   - python3 scripts.py
