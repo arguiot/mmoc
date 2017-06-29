@@ -7,9 +7,9 @@ install: "pip install -r requirements.txt"
 script: python scripts.py
 deploy:
   provider: releases
-  api-key: "GITHUB OAUTH TOKEN"
+  api-key: "9a6daae4960b3f7b053906b40f7fc168f79f7ced"
   file_glob: true
-  file: MMOC/*
+  file: MMOCs/*
   skip_cleanup: true
   on:
     tags: true
