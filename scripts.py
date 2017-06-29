@@ -19,7 +19,7 @@ path = "./MMOCs"
 # extI = input("Choose the extension of each image ('png', 'svg', 'jpg', ...): ")
 extI = "png"
 # Ndpi = int(input("DPI (bigger, better, harder): "))
-Ndpi = 128
+Ndpi = 72
 bar = progressbar.ProgressBar(widgets=[
     ' [', progressbar.Timer(), '] ',
     progressbar.Bar(),
