@@ -15,7 +15,7 @@ else:
   NOfI = NOfP
   step = 1
 # path = input("Choose the path of the rendered elements ('.' of local directory): ")
-path = "./MMOC"
+path = "./MMOCs"
 # extI = input("Choose the extension of each image ('png', 'svg', 'jpg', ...): ")
 extI = "png"
 # Ndpi = int(input("DPI (bigger, better, harder): "))
