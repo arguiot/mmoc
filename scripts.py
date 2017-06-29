@@ -2,16 +2,24 @@ import numpy as np
 import matplotlib.pyplot as plt
 import progressbar
 
-NOfP = int(input("How many points do you want? "))
-Diff = input("Custom number of image? [y/n] ")
+# NOfP = int(input("How many points do you want? "))
+NOfP = 500
+# Diff = input("Custom number of image? [y/n] ")
+Diff = "y"
 if Diff == "y":
-  NOfI = int(input("Then, how many images? "))
+  # NOfI = int(input("Then, how many images? "))
+  NOfI = NOfP
+  # step = eval(input("Step value: "))
+  step = 0.1
 else:
   NOfI = NOfP
-path = input("Choose the path of the rendered elements ('.' of local directory): ")
-extI = input("Choose the extension of each image ('png', 'svg', 'jpg', ...): ")
-Ndpi = int(input("DPI (bigger, better, harder): "))
-
+  step = 1
+# path = input("Choose the path of the rendered elements ('.' of local directory): ")
+path = "./MMOC"
+# extI = input("Choose the extension of each image ('png', 'svg', 'jpg', ...): ")
+extI = "png"
+# Ndpi = int(input("DPI (bigger, better, harder): "))
+Ndpi = 128
 bar = progressbar.ProgressBar(widgets=[
     ' [', progressbar.Timer(), '] ',
     progressbar.Bar(),
@@ -49,6 +57,6 @@ def graph(n):
   plt.axis("off")
   plt.savefig(path + "/graph-" + str(m) + "." + extI, dpi=Ndpi)
 
-for i in range(NOfI):
+for i in np.arange(0, NOfI, step):
   graph(i)
   bar.update(i*100/NOfP)
